@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Search Research Papers</h3>
+    <br>
+    <div class="col-md-6 mx-auto contain">
+        <form action="scholar" method="post" encType="multipart/form-data">
+            <br>
+            <label class="form-label"><b>Enter the details</b></label>
+            <br><br>
+            <div class="row">
+                <label class="form-label">Search Query </label>
+                <input type="text" class="form-control" name="s" placeholder="IOT" required="true">
+            </div>
+            <br>
+            <br>
+            <p>Google Scholar is a freely accessible web search engine that indexes the full text or metadata of scholarly literature across an array of publishing formats and disciplines.</p>
+            <br>
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+        <br>
+    </div>
+
+    <!--    FORM-->
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Issue Book</h3>
+    <br>
+    <div class="col-md-10 mx-auto contain">
+        <form action="issue" method="post" encType="multipart/form-data">
+            <label class="form-label"><b>Book Details</b></label>
+            <br><br>
+                <div class="row">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" value="<%=bookData[0].Title%>" required="true" readonly>
+                </div>
+            <br>
+                <div class="row">
+                    <label class="form-label">Author</label>
+                    <input type="text" class="form-control" name="author" value="<%=bookData[0].Author%>" required="true" readonly>
+                </div>
+            <br>
+                <div class="row">
+                    <label class="form-label">Book ID</label>
+                    <input type="text" class="form-control" name="bookid" value="<%=bookData[0].bookID%>" required="true" readonly>
+                </div>
+            <br>
+            <label class="form-label"><b>User Details</b></label><br><br>
+
+                <div class="row">
+                    <label class="form-label">First Name </label>
+                    <input type="text" class="form-control" name="name" value="<%=userData[0].first_name + ' ' + userData[0].last_name%>" required="true" readonly>
+                </div>
+            <br>
+                <div class="row">
+                    <label class="form-label">User ID</label>
+                    <input type="text" class="form-control" name="userid" value="<%=userData[0].id%>" required="true" readonly>
+                </div>
+            <br>
+                <div class="row">
+                    <label class="form-label">User Email</label>
+                    <input type="text" class="form-control" name="email" value="<%=userData[0].email%>" required="true" readonly>
+                </div>
+            <br>
+            <div class="row">
+                <label class="form-label">Issue Till Date</label>
+                <input type="date" class="form-control" name="rdate" required="true">
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-success">Issue Book</button>
+        </form>
+    </div>
+
+    <!--    FORM-->
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+

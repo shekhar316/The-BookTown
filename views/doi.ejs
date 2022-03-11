@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">DOI Downloader</h3>
+    <br>
+    <div class="col-md-6 mx-auto contain">
+        <form action="doi" method="post" encType="multipart/form-data">
+            <br>
+            <label class="form-label"><b>Enter the details</b></label>
+            <br><br>
+            <div class="row">
+                <label class="form-label">DOI </label>
+                <input type="text" class="form-control" name="doi" placeholder="10.1000/j.future.2000.01.021" required="true">
+            </div>
+            <br>
+            <br>
+            <p>A digital object identifier (DOI) is a persistent identifier or handle used to identify objects uniquely, standardized by the International Organization for Standardization (ISO).[1] An implementation of the Handle System,[2][3] DOIs are in wide use mainly to identify academic, professional, and government information, such as journal articles, research reports, data sets, and official publications. DOIs have also been used, however, to identify other types of information resources, such as commercial videos.</p>
+            <br>
+            <button type="submit" class="btn btn-success">Download</button>
+        </form>
+        <br>
+    </div>
+
+    <!--    FORM-->
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+

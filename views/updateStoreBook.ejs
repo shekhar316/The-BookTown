@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Manage E-book Store</h3>
+    <br>
+    <div class="col-md-6 mx-auto contain">
+        <form action="updatePrice" method="post" encType="multipart/form-data">
+            <br>
+            <label class="form-label"><b>Update Book Price</b></label>
+            <br><br>
+            <div class="row">
+                <label class="form-label">EBook ID: </label>
+                <input type="text" class="form-control" name="id" value="<%=eid%>" required="true" readonly>
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label">New Price: </label>
+                <input type="text" class="form-control" name="new" value="" required="true">
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label">Old Price:</label>
+                <input type="text" class="form-control" name="old" value="<%=oldp%>" required="true" readonly>
+            </div>
+            <br>
+            <p>Enter user details carefully.</p>
+            <br>
+            <button type="submit" class="btn btn-success">Update Price</button>
+        </form>
+        <br>
+    </div>
+
+    <!--    FORM-->
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+

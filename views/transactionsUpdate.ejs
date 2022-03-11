@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Manage Transactions</h3>
+    <br>
+    <div class="col-md-6 mx-auto contain">
+        <form action="updateT" method="post" encType="multipart/form-data">
+            <br>
+            <label class="form-label"><b>Update Transaction</b></label>
+            <br><br>
+            <div class="row">
+                <label class="form-label">ID: </label>
+                <input type="text" class="form-control" name="id" value="<%=bookData[0].id%>" required="true" readonly>
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label">Book ID: </label>
+                <input type="text" class="form-control"  value="<%=bookData[0].bookid%>" required="true" readonly>
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label">User ID: </label>
+                <input type="text" class="form-control" value="<%=bookData[0].userid%>" required="true" readonly>
+            </div>
+            <br>
+            <div class="row">
+                <label class="form-label">Issue Date: </label>
+                <input type="text" class="form-control" value="<%=bookData[0].issueDate%>" required="true" readonly>
+            </div>
+            <br>
+            <%if(bookData[0].issueTill){%>
+            <div class="row">
+                <label class="form-label">Issue Till: </label>
+                <input type="text" class="form-control" value="<%=bookData[0].issueTill%>" required="true" readonly>
+            </div>
+            <%}else{%>
+            <div class="row">
+                <label class="form-label">Issue Till: </label>
+                <input type="date" class="form-control" name="it" required="true">
+            </div>
+            <%}%>
+            <br>
+            <%if(bookData[0].status == 'I'){%>
+            <div class="row">
+                <label class="form-label">Return Date: </label>
+                <input type="date" class="form-control" name="rd" required="true">
+            </div>
+            <br>
+            <%}%>
+            <div class="row">
+                <label class="form-label">Status: </label>
+                <input type="text" class="form-control" value="<%=bookData[0].status%>" name="st" readonly>
+            </div>
+            <br>
+            <br>
+            <p>Enter user details carefully.</p>
+            <br>
+            <button type="submit" class="btn btn-success">Update</button>
+        </form>
+        <br>
+    </div>
+
+    <!--    FORM-->
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+

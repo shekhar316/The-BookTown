@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Library Transactions</h3>
+<!--    <br><br>-->
+<!--    <h3 class="text-center">Library Transactions</h3>-->
+    <br><br>
+    <table class="table table-striped table-bordered" id="myTable">
+        <thead>
+        <tr class="table-dark">
+            <th>Trans. ID</th>
+            <th>Book ID</th>
+            <th>Issue Date</th>
+            <th>Issue Till</th>
+            <th>Return Date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if(bookData.length!=0){ var i = 1; bookData.forEach(function(data){ %>
+        <tr <%if(!data.returnDate){%>class="table-danger" <%}%><%if(data.status=='R'){%>class="table-success" <%}%>>
+            <td>
+                <%=data.id %>
+            </td>
+            <td>
+                <a href="/book/viewbyid/<%=data.bookid %>"><%=data.bookid %></a>
+            </td>
+            <td>
+                <%=data.issueDate %>
+            </td>
+            <td>
+                <%=data.issueTill %>
+            </td>
+            <td>
+                <%=data.returnDate %>
+            </td>
+            <td>
+                <%=data.status %>
+            </td>
+
+        </tr>
+        <% i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="100%">No Data Found</td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>

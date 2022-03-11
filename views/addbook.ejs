@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Add book for Library</h3>
+    <br>
+    <div class="col-md-10 mx-auto contain">
+        <form action="addbook" method="post" encType="multipart/form-data">
+            <label class="form-label"><b>Book Details</b></label>
+            <br><br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" placeholder="Title" required="true">
+                </div>
+                <div class="col">
+                    <label class="form-label">Author</label>
+                    <input type="text" class="form-control" name="author" placeholder="Mr. John Doe" required="true">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-label">ISBN</label>
+                    <input type="text" placeholder="1234567891234" class="form-control" name="isbn" required="true">
+                </div>
+
+            </div>
+            <br><br>
+            <label class="form-label"><b>Publication Details</b></label><br><br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Publisher </label>
+                    <input type="text" class="form-control" name="publisher" placeholder="XYZ Publication" required="true">
+                </div>
+                <div class="col">
+                    <label class="form-label">Publication Year</label>
+                    <input type="text" class="form-control" name="year" placeholder="20XX" required="true">
+                </div>
+                <div class="col">
+                    <label class="form-label">Edition</label>
+                    <input type="text" class="form-control" name="edition" placeholder="Xth Edition" required="true">
+                </div>
+            </div>
+            <br>
+            <label class="form-label"><b>Quantity Details</b></label><br><br>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Total for Issue </label>
+                    <input type="text" class="form-control" name="issue" placeholder="0" required="true">
+                </div>
+                <div class="col">
+                    <label class="form-label">Total for Read </label>
+                    <input type="text" class="form-control" name="read" placeholder="0" required="true">
+                </div>
+            </div>
+            <br>
+            <label class="form-label"><b>Book Cover Image</b></label><br><br>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">File Image</label>
+                        <input type="file" class="form-control-file" name="bookImage" id="exampleFormControlFile1">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Add Book</button>
+        </form>
+    </div>
+
+    <!--    FORM-->
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+</head>
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container mx-auto">
+    <br />
+    <h3 class="text-center"><%=Data[0].Title %></h3>
+    <br /><br />
+    <div class="row bookinforow">
+        <div class="col-md-6">
+            <img src="/ebookImg/<%=Data[0].identifier %>.jpg" class="bookImg" />
+        </div>
+        <div class="col-md-6 bookinfosec">
+            <p><b>EBook ID:</b> <%=Data[0].ebookID%></p>
+            <p><b>Title: </b> <%=Data[0].Title%></p>
+            <p><b>Author: </b> <%=Data[0].Author%></p>
+            <p><b>ISBN: </b> <%=Data[0].ISBN%></p>
+            <p><b>Publisher:</b> <%=Data[0].Publisher%></p>
+            <p><b>Publication Year: </b> <%=Data[0].PublicationYear%></p>
+            <p><b>Edition: </b> <%=Data[0].Edition%></p>
+            <br />
+            <a href="/ebook/getebook/<%=Data[0].identifier%>" class="btn btn-success">Get This E-Book</a>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<%- include('partials/footer') %>
+</body>
+</html>

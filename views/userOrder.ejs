@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container">
+    <br>
+    <h3 class="text-center">Ebook Store Transactions</h3>
+    <!--    <br><br>-->
+    <!--    <h3 class="text-center">Library Transactions</h3>-->
+    <br><br>
+    <table class="table table-striped table-bordered" id="myTable">
+        <thead>
+        <tr class="table-dark">
+            <th>Receipt ID</th>
+            <th>Payment ID</th>
+            <th>E-Book ID</th>
+            <th>Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if(bookData.length!=0){ var i = 1; bookData.forEach(function(data){ %>
+        <tr>
+            <td>
+                <%=data.receipt %>
+            </td>
+            <td>
+                <%=data.payid %>
+            </td>
+            <td>
+                <a href="/store/viewbyid/<%=data.bookid %>"><%=data.bookid %></a>
+            </td>
+            <td>
+                <%=data.amount %>
+            </td>
+
+        </tr>
+        <% i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="100%">No Data Found</td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>

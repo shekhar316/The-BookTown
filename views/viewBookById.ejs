@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+</head>
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container mx-auto">
+    <br />
+    <h3 class="text-center"><%=Data[0].Title %></h3>
+    <br /><br />
+    <div class="row bookinforow">
+        <div class="col-md-6">
+            <img src="/bookImg/<%=Data[0].identifier %>.jpg" class="bookImg" />
+        </div>
+        <div class="col-md-6 bookinfosec">
+            <p><b>EBook ID:</b> <%=Data[0].bookID%></p>
+            <p><b>Title: </b> <%=Data[0].Title%></p>
+            <p><b>Author: </b> <%=Data[0].Author%></p>
+            <p><b>ISBN: </b> <%=Data[0].ISBN%></p>
+            <p><b>Publisher:</b> <%=Data[0].Publisher%></p>
+            <p><b>Publication Year: </b> <%=Data[0].PublicationYear%></p>
+            <p><b>Edition: </b> <%=Data[0].Edition%></p>
+            <p><b>Total for Issue:</b> <%=Data[0].Total %></p>
+            <p><b>Total for Read: </b> <%=Data[0].TotalRead %></p>
+            <p><b>Available for Issue: </b> <%=Data[0].Available %></p>
+            <br />
+            <%if(locals.role > 1){ %>
+            <a href="/admin/issuebook/<%=Data[0].bookID%>" class="btn btn-dark">Issue Book</a>
+            <a href="/admin/lib/update/<%=Data[0].bookID%>/<%=Data[0].Total %>/<%=Data[0].TotalRead %>/<%=Data[0].Available %>" class="btn btn-primary">Update</a>
+            <a href="/admin/lib/delete/<%=Data[0].bookID%>" class="btn btn-danger">Delete</a>
+            <% } else{ %>
+            <a href="/user/hold/<%=Data[0].bookID%>" class="btn btn-success">Hold This Book</a>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<%- include('partials/footer') %>
+</body>
+</html>

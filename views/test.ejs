@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+
+<%- include('partials/navbar') %>
+
+
+<img src="/img/headerImg2.png" class="jumboImg">
+
+<br><br>
+
+<div class="container text-center">
+    <br>
+    <h3 class="text-center">Payment</h3>
+    <br>
+    <p>you will redirected to home page after successful payment.</p>
+    <br>
+    <button class="text-center btn-lg btn-success" id="rzp-button1">Pay Now</button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_NgRaEfHOc7qVlK", // Enter the Key ID generated from the Dashboard
+            "amount": "<%=order.amount%>", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "The BookTown",
+            "description": "Ebook Store Test Transaction",
+            "image": "/img/iconCircle.png",
+            "order_id": "<%=order.id%>", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "callback_url": "http://localhost:8000/store/save/<%=order.notes.pbookid%>/<%=order.amount%>/<%=order.receipt%>",
+            "prefill": {
+                "name": "<%=locals.name%>",
+                "email": "<%=locals.email%>",
+                "contact": "<%=locals.phone%>"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</div>
+
+
+
+
+<%- include('partials/footer') %>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
